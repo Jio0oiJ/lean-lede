@@ -52,7 +52,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
-git clone https://github.com/sbwml/luci-app-mosdns -b v5.3.3 package/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5.3.1 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 curl -o package/mosdns/luci-app-mosdns/root/etc/mosdns/config_custom.yaml https://raw.githubusercontent.com/Jio0oiJ/mosdns_config/master/config_custom.yaml
 
