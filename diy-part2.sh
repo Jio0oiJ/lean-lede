@@ -48,7 +48,6 @@ git clone https://github.com/Jio0oiJ/adguardhome feeds/packages/net/adguardhome
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 
-# drop mosdns and v2ray-geodata packages that come with the source
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
