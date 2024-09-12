@@ -23,7 +23,7 @@ env:
   CONFIG_FILE: onecloud.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  GEN_BURN_IMG_SH: gen_burn_img.sh
+  GEN_BURN_IMG_SH: amlogic/gen_burn_img.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -114,7 +114,7 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       run: |
         chmod +x $GEN_BURN_IMG_SH
-        chmod +x AmlImg
+        chmod +x amlogic/AmlImg
         $GITHUB_WORKSPACE/$GEN_BURN_IMG_SH
 
     - name: Check space usage
@@ -171,8 +171,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Send msg to Wechat
-      env:
-        SENDKEY: ${{ secrets.SENDKEY }}
-        TAG: ${{ steps.tag.outputs.release_tag }}
-      run: curl -d "text=OpenWrt编译结束&desp=https://github.com/${GITHUB_REPOSITORY}/releases/${TAG}" https://sctapi.ftqq.com/${SENDKEY}.send
+   # - name: Send msg to Wechat
+   #   env:
+   #     SENDKEY: ${{ secrets.SENDKEY }}
+   #     TAG: ${{ steps.tag.outputs.release_tag }}
+   #   run: curl -d "text=OpenWrt编译结束&desp=https://github.com/${GITHUB_REPOSITORY}/releases/${TAG}" https://sctapi.ftqq.com/${SENDKEY}.send
